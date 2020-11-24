@@ -3,7 +3,7 @@
 __author__ = "YuKwengRu"
 
 AUTOLAB = {
-    "conn_str": "mysql+pymysql://root:jsfj120JSFJ@192.168.2.230:3306/autolab",
+    "conn_str": "mysql+pymysql://root:jsfj120JSFJ!@)@192.168.2.230:3306/autolab",
     "encoding": "utf-8",
     "echo": False,
     "tables": ["demo"]
