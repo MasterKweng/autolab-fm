@@ -18,10 +18,10 @@ node {
 
     // 启动测试
     stage("Test"){
-        powershell "pytest --version"
+        sh "pytest --version"
         dir("."){
-            powershell "pwd"
-            powershell "pytest ${testplan} --html=./logs/report.html --self-contained-html"
+            sh "pwd"
+            sh "pytest ${testplan} --html=./logs/report.html --self-contained-html"
         }
     }
     
