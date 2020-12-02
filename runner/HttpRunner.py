@@ -10,7 +10,7 @@ import requests
 from requests import Request
 from requests.auth import HTTPBasicAuth
 
-from .Runner import Runner
+from .runner import Runner
 
 class HttpRunner(Runner):
     def __init__(self, base_url="127.0.0.1", verify=False):

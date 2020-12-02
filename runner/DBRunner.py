@@ -11,7 +11,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.engine import reflection
 from sqlalchemy.dialects.mysql import *
 
-from .Runner import Runner
+from .runner import Runner
 
 class DBRunner(Runner):
     
