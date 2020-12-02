@@ -2,19 +2,36 @@
 
 __author__ = "YuKwengRu"
 
-AUTOLAB = {
-    "conn_str": "mysql+pymysql://root:jsfj120JSFJ!@)@192.168.2.230:3306/autolab",
+# AUTOLAB = {
+#     "conn_str": "mysql+pymysql://root:jsfj120JSFJ!@)@192.168.2.230:3306/autolab",
+#     "encoding": "utf-8",
+#     "echo": False,
+#     "tables": ["demo"]
+# }
+
+# AUTOLAB_DEMO = {
+#     "table_name": "demo",
+#     "columns": ["id","user", "name", "unique_id"],
+#     "primary_key": ["id"],
+#     "nullable": ["id"],
+#     "unique": ["user", "unique_id"],
+#     "index": ["id", "user", "unique_id"],
+#     "default": {"user": "ryk", "unique_id": None}
+# }
+
+EV_CALL_01 = {
+    "conn_str": "mysql+pymysql://root:jsfj120JSFJ!@)@192.168.2.230:3306/ev-call-01",
     "encoding": "utf-8",
     "echo": False,
-    "tables": ["demo"]
+    "tables": ["auth_authority", "auth_permit_role", "auth_permit_user", "auth_role", "auth_role_user", ]
 }
 
-AUTOLAB_DEMO = {
-    "table_name": "demo",
-    "columns": ["id","user", "name", "unique_id"],
-    "primary_key": ["id"],
-    "nullable": ["id"],
-    "unique": ["user", "unique_id"],
-    "index": ["id", "user", "unique_id"],
-    "default": {"user": "ryk", "unique_id": None}
+auth_authority = {
+    "table_name": "auth_authority",
+    "columns": ["id", "code", "name", "parent_code", "parent_name", "icon",
+     "href", "type", "status", "remark", "system_code", "system_name", "create_time", "creator", "update_time", "updater"],
+     "primary_key": ["id"],
+     "notnullable": ["id", "code", "system_code", "system_name"],
+     "index": [""],
+     "default": {"name":None , "parent_code", "parent_name", "icon", "href", "type", "status", "remark"}
 }
