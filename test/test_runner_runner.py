@@ -13,7 +13,7 @@ rootPath = os.path.split(curpath)[0]
 sys.path.append(rootPath)
 
 import unittest
-from runner.runner import DBRunner
+from runner.DBRunner import DBRunner
 
 class TestDBRunner(unittest.TestCase):
     conn_str = "mysql+pymysql://root:123456@localhost:3306/autolab"

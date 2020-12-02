@@ -3,13 +3,14 @@
 __author__ = "YuKwengRu"
 
 import pytest
-from .rescources.DatabaseTest.conf import AUTOLAB
-from runner.runner import DBRunner
+# from .rescources.DatabaseTest.conf import AUTOLAB
+from .rescources.DatabaseTest.conf import EV_CALL_01
+from runner.DBRunner import DBRunner 
 
 @pytest.fixture(scope="module")
 def database_connector():
 
-    return DBRunner(conn_str=AUTOLAB["conn_str"])
+    return DBRunner(conn_str=EV_CALL_01["conn_str"])
 
 @pytest.fixture
 def http_connector():

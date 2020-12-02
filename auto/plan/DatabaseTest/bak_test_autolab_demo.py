@@ -6,7 +6,7 @@ import pytest
 
 from auto.conftest import database_connector
 
-from runner.runner import DBRunner
+from runner.DBRunner import DBRunner
 
 from auto.rescources.DatabaseTest.conf import AUTOLAB_DEMO
 
