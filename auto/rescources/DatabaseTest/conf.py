@@ -28,10 +28,9 @@ EV_CALL_01 = {
 
 auth_authority = {
     "table_name": "auth_authority",
-    "columns": ["id", "code", "name", "parent_code", "parent_name", "icon",
-    "href", "type", "status", "remark", "system_code", "system_name", "create_time", "creator", "update_time", "updater"],
+    "columns": ["id", "code", "name", "parent_code", "parent_name", "icon", "href", "type", "status", "remark", "system_code", "system_name", "create_time", "creator", "update_time", "updater"],
     "primary_key": ["id"],
-    "notnullable": ["id", "code", "system_code", "system_name"],
+    "nullable": ["name"],
     "index": [""],
     "default": {"name":None , "parent_code":None, "parent_name":None, "icon":None, "href":None, "type":None, "status":None, "remark":None, "create_time":None, "creator":None, "update_time":None, "updater":None}
 }
