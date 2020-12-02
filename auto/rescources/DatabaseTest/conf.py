@@ -32,5 +32,5 @@ auth_authority = {
     "primary_key": ["id"],
     "nullable": ["name"],
     "index": [""],
-    "default": {"name":None , "parent_code":None, "parent_name":None, "icon":None, "href":None, "type":None, "status":None, "remark":None, "create_time":None, "creator":None, "update_time":None, "updater":None}
+    "default": [{"name":None} , {"parent_code":None}, {"parent_name":None}, {"icon":None}, {"href":None}, {"type":None}, {"status":None}, {"remark":None}, {"create_time":None}, {"creator":None}, {"update_time":None}, {"updater":None}]
 }

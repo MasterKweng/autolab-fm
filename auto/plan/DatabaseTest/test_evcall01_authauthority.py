@@ -37,12 +37,13 @@ def test_authauthority_nullable(database_connector):
 
         assert res[col]
 
-# def test_authauthority_default(database_connector):
-#     db = database_connector
+def test_authauthority_default(database_connector):
+    db = database_connector
 
-#     res = db.is_default(auth_authority["table_name"], auth_authority["default"])
+    res = db.is_default(auth_authority["table_name"], auth_authority["default"])
 
-#     for col in auth_authority["default"]:
-#         print("table %s  column %s has default? %s" % (auth_authority["table_name"], col, res[col]))
+    for col in auth_authority["default"]:
+        k,v = col
+        print("table %s  column %s has default? %s" % (auth_authority["table_name"],k, res[k]))
 
-#         assert res[col]
+        assert res[k]

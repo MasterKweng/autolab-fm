@@ -85,12 +85,11 @@ class DBRunner(Runner):
         
         return res
     
-    def is_default(self, table_name, columns={}):
+    def is_default(self, table_name, columns=[]):
         res = {}
         for col in columns:
-            k, v = columns.popitem()
+            k, v = col.popitem()
             res[k] = v == self.__find_column(table_name, k)["default"]
-            print(res[k])
         
         return res
     
