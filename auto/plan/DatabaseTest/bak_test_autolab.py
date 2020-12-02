@@ -2,7 +2,7 @@ __author__ = "YuKwengRu"
 
 import pytest
 
-from runner.runner import DBRunner
+from runner.DBRunner import DBRunner
 
 from auto.rescources.DatabaseTest.conf import AUTOLAB
 
