@@ -1,5 +1,5 @@
 // 定义测试场景文件路径变量
-def testplan="./auto/plan/DatabaseTest/test_evcall01.py"
+// def testplan="./auto/plan/DatabaseTest/test_evcall01.py"
 
 // 声明式 pipeline 替代node
 node {
@@ -21,7 +21,9 @@ node {
         sh "pytest --version"
         dir("."){
             sh "pwd"
-            sh "pytest ${testplan} --html=./logs/report.html --self-contained-html"
+            sh "cd ./auto/plan/DatabaseTest/"
+            // sh "pytest ${testplan} --html=./logs/report.html --self-contained-html"
+            sh "pytest  --html=./logs/report.html --self-contained-html"
         }
     }
     
