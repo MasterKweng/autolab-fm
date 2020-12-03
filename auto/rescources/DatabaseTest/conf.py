@@ -33,7 +33,19 @@ auth_authority = {
     "columns": ["id", "code", "name", "parent_code", "parent_name", "icon", "href", "type", "status", "remark", "system_code", "system_name", "create_time", "creator", "update_time", "updater"],
     "primary_key": ["id"],
     "nullable": ["name", "parent_code", "parent_name", "icon", "href", "type", "status", "remark",  "create_time", "creator", "update_time", "updater"],
+    "unique": [],
     "index": [""],
-    # "default": [{"name":None}, {"parent_code":None}, {"parent_name":None}, {"icon":None}, {"href":None}, {"type":None}, {"status":None}, {"remark":None}, {"create_time":"CURRENT_TIMESTAMP"}, {"creator":None}, {"update_time":"CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"}, {"updater":None}]
     "default": {"name":None,"parent_code":None,"parent_name":None, "icon":None, "href":None, "type":None, "status":None, "remark":None, "create_time":"CURRENT_TIMESTAMP", "creator":None, "update_time":"CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP", "updater":None}
+}
+
+    # "default": [{"name":None}, {"parent_code":None}, {"parent_name":None}, {"icon":None}, {"href":None}, {"type":None}, {"status":None}, {"remark":None}, {"create_time":"CURRENT_TIMESTAMP"}, {"creator":None}, {"update_time":"CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"}, {"updater":None}]
+
+auth_permit_role = {
+    "table_name": "auth_permit_role",
+    "columns": ["id","auth_code", "auth_name", "role_code", "role_name", "create_time", "creator", "update_time", "updater", "system_code", "system_name"],
+    "primary_key": ["id"],
+    "nullable": ["role_code", "role_name", "create_time", "creator", "update_time", "updater", "system_code", "system_name"],
+    "unique": [],
+    "index": [],
+    "default": {"role_code":None, "role_name":None, "create_time":"CURRENT_TIMESTAMP", "creator":None, "update_time":"CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP", "updater":None, "system_code":None, "system_name":None}
 }

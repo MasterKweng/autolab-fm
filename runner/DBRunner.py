@@ -16,8 +16,6 @@ from .runner import Runner
 class DBRunner(Runner):
     
     def __init__(self, conn_str="", encoding="utf-8", echo=False):
-        print(super)
-        print(super())
         super().__init__(name = "DataBase Runner")
 
         # init engine object

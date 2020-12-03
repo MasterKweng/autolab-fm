@@ -3,51 +3,25 @@
 __author__ = "YuKwengRu"
 
 from auto.conftest import database_connector
-
 from auto.rescources.DatabaseTest.conf import auth_authority
+from runnerFunction.DBTestFunc import DBTestFunc
 
+# authority = DBTestFunc(database_connector)
 
-def test_authauthority_columns_exist(database_connector):
-    db = database_connector
+def test_auth_authority_columns_exist(database_connector):
 
-    res = db.has_columns(auth_authority["table_name"], auth_authority["columns"])
-    
-    for col in auth_authority["columns"]:
-        print("table %s has columns %s ? %s" % (auth_authority["table_name"], col, res[col]))
+    authority = DBTestFunc(database_connector)
 
-        assert res[col]
-    
-def test_authauthority_primary_key(database_connector):
-    db = database_connector
+    authority.table_columns_exist(auth_authority["table_name"], auth_authority["columns"], database_connector())
 
-    res = db.is_primary_key(auth_authority["table_name"], auth_authority["primary_key"])
+# def test_authauthority_primary_key():
 
-    for col in auth_authority["primary_key"]:
-        print("table %s primary key is %s ? %s "% (auth_authority["table_name"], col, res[col]))
+#     authority.table_primary_key(auth_authority["table_name"], auth_authority["primary_key"])
 
-        assert res[col]
+# def test_authauthority_nullable():
 
-def test_authauthority_nullable(database_connector):
-    db = database_connector
+#     authority.table_nullable(auth_authority["table_name"], auth_authority["nullable"])
 
-    res = db.is_nullable(auth_authority["table_name"], auth_authority["nullable"])
+# def test_authauthority_default():
 
-    for col in auth_authority["nullable"]:
-        print("table %s column %s is nullable  ? %s "% (auth_authority["table_name"], col, res[col]))
-
-        assert res[col]
-
-def test_authauthority_default(database_connector):
-    db = database_connector
-    res = db.is_default(auth_authority["table_name"], auth_authority["default"])
-
-    d = auth_authority["default"]
-
-    for (k,v) in d.items():
-        print(k)
-        print(v)
-        break
-        # k,v = col.popitem()
-        print("table %s  column %s has default? %s" % (auth_authority["table_name"],k, res[o]))
-
-        assert res[k]
+#     authority.table_default(auth_authority["table_name"], auth_authority["default"])

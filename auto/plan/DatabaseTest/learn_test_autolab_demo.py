@@ -25,7 +25,7 @@ def test_demo_primary_key(database_connector):
     res = db.is_primary_key(AUTOLAB_DEMO["table_name"], AUTOLAB_DEMO["primary_key"])
 
     for col in AUTOLAB_DEMO["primary_key"]:
-        print("exist primary key: %s --? %s" %(col, res[col]))
+        print("exist primary key: %s --> %s" %(col, res[col]))
 
         assert res[col]
 
