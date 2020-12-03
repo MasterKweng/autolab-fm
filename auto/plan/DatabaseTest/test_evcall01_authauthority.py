@@ -41,9 +41,13 @@ def test_authauthority_default(database_connector):
     db = database_connector
     res = db.is_default(auth_authority["table_name"], auth_authority["default"])
 
-    for col in auth_authority["default"]:
-        print(col)
-        k,v = col.popitem()
-        print("table %s  column %s has default? %s" % (auth_authority["table_name"],k, res[k]))
+    d = auth_authority["default"]
+
+    for (k,v) in d.items():
+        print(k)
+        print(v)
+        break
+        # k,v = col.popitem()
+        print("table %s  column %s has default? %s" % (auth_authority["table_name"],k, res[o]))
 
         assert res[k]

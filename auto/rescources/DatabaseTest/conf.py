@@ -34,5 +34,6 @@ auth_authority = {
     "primary_key": ["id"],
     "nullable": ["name", "parent_code", "parent_name", "icon", "href", "type", "status", "remark",  "create_time", "creator", "update_time", "updater"],
     "index": [""],
-    "default": [{"name":None}, {"parent_code":None}, {"parent_name":None}, {"icon":None}, {"href":None}, {"type":None}, {"status":None}, {"remark":None}, {"create_time":"CURRENT_TIMESTAMP"}, {"creator":None}, {"update_time":"CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"}, {"updater":None}]
+    # "default": [{"name":None}, {"parent_code":None}, {"parent_name":None}, {"icon":None}, {"href":None}, {"type":None}, {"status":None}, {"remark":None}, {"create_time":"CURRENT_TIMESTAMP"}, {"creator":None}, {"update_time":"CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"}, {"updater":None}]
+    "default": {"name":None,"parent_code":None,"parent_name":None, "icon":None, "href":None, "type":None, "status":None, "remark":None, "create_time":"CURRENT_TIMESTAMP", "creator":None, "update_time":"CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP", "updater":None}
 }

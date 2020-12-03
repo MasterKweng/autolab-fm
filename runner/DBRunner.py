@@ -85,12 +85,15 @@ class DBRunner(Runner):
         
         return res
     
-    def is_default(self, table_name, columns=[]):
+    def is_default(self, table_name, columns={}):
         res = {}
-        for col in columns:
-            k = list(col)[0]
-            v = col[k]
+        for (k,v) in columns.items():
+            # for (k,v) in col.items():
+            #     # v = col[k]
             res[k] = v == self.__find_column(table_name, k)["default"]
+            # for k in col.keys():
+            #     v = col[k]
+            #     res[k] = v == self.__find_column(table_name, k)["default"]
         
         return res
     
