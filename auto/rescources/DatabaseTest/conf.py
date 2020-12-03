@@ -2,6 +2,8 @@
 
 __author__ = "YuKwengRu"
 
+import time
+
 AUTOLAB = {
     "conn_str": "mysql+pymysql://root:jsfj120JSFJ!@)@192.168.2.230:3306/autolab",
     "encoding": "utf-8",
@@ -16,7 +18,7 @@ AUTOLAB_DEMO = {
     "nullable": ["id"],
     "unique": ["user", "unique_id"],
     "index": ["id", "user", "unique_id"],
-    "default": {"user": "ryk", "unique_id": None}
+    "default": [{"user": "ryk"},{"unique_id": None}]
 }
 
 EV_CALL_01 = {
@@ -32,5 +34,5 @@ auth_authority = {
     "primary_key": ["id"],
     "nullable": ["name"],
     "index": [""],
-    "default": [{"name":None} , {"parent_code":None}, {"parent_name":None}, {"icon":None}, {"href":None}, {"type":None}, {"status":None}, {"remark":None}, {"create_time":None}, {"creator":None}, {"update_time":None}, {"updater":None}]
+    "default": [{"name":None}, {"parent_code":None}, {"parent_name":None}, {"icon":None}, {"href":None}, {"type":None}, {"status":None}, {"remark":None}, {"create_time":"CURRENT_TIMESTAMP"}, {"creator":None}, {"update_time":"CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"}, {"updater":None}]
 }
