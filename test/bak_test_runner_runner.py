@@ -21,8 +21,8 @@ class TestDBRunner(unittest.TestCase):
     def test_has_columns(self):
         runner = DBRunner(self.conn_str)
 
-        # columns = ["id", "user", "name", "unique_id", "test"]
         columns = ["id", "user", "name", "unique_id", "test"]
+        # columns = ["id", "user", "name", "unique_id", "test"]
 
         res = runner.has_columns(self.table_name, columns)
         for col in columns:
