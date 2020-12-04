@@ -30,7 +30,7 @@ EV_CALL_01 = {
 
 auth_authority = {
     "table_name": "auth_authority",
-    "columns": ["id", "code", "name", "parent_code", "parent_name", "icon", "href", "type", "status", "remark", "system_code", "system_name", "create_time", "creator", "update_time", "updater"],
+    "columns": [ "id", "code", "name", "parent_code", "parent_name", "icon", "href", "type", "status", "remark", "system_code", "system_name", "create_time", "creator", "update_time", "updater"],
     "primary_key": ["id"],
     "nullable": ["name", "parent_code", "parent_name", "icon", "href", "type", "status", "remark",  "create_time", "creator", "update_time", "updater"],
     "unique": [],
@@ -58,4 +58,14 @@ auth_permit_user = {
     "unique": [],
     "index": [],
     "default": {"auth_name":None, "user_id":None, "user_name":None, "sort":None, "create_time":"CURRENT_TIMESTAMP", "creator":None, "update_time":"CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP", "updater":None, "system_code":None, "system_name":None}
+}
+
+auth_role = {
+    "table_name": "auth_role",
+    "columns": ["id","code", "name", "system_code", "system_name", "status", "unit_id", "unit_name", "remark", "create_time", "creator", "update_time", "updater"],
+    "primary_key": ["id"],
+    "nullable": ["status", "unit_id", "unit_name", "remark", "create_time", "creator", "update_time", "updater"],
+    "unique": [],
+    "index": [],
+    "default": {"status":None, "unit_id":None, "unit_name":None, "remark":None, "create_time":"CURRENT_TIMESTAMP", "creator":None, "update_time":"CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP", "updater":None}
 }

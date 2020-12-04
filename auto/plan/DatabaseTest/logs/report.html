@@ -420,7 +420,7 @@ function filter_table(elem) {
 }
 </script>
     <h1>report.html</h1>
-    <p>Report generated on 03-Dec-2020 at 18:38:31 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v2.1.1</p>
+    <p>Report generated on 04-Dec-2020 at 18:14:59 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v2.1.1</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -439,8 +439,8 @@ function filter_table(elem) {
         <td>Python</td>
         <td>3.9.0</td></tr></table>
     <h2>Summary</h2>
-    <p>1 tests ran in 0.18 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">0 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>4 tests ran in 0.19 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">4 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -451,12 +451,80 @@ function filter_table(elem) {
           <th>Links</th></tr>
         <tr hidden="true" id="not-found-message">
           <th colspan="4">No results found. Try to check the filters</th></tr></thead>
-      <tbody class="failed results-table-row">
+      <tbody class="passed results-table-row">
         <tr>
-          <td class="col-result">Failed</td>
-          <td class="col-name">auto/plan/DatabaseTest/test_evcall01_authauthority.py::test_auth_authority_columns_exist</td>
+          <td class="col-result">Passed</td>
+          <td class="col-name">auto/plan/DatabaseTest/test_evcall01_authauthority.py::test_authauthority_columns_exist</td>
+          <td class="col-duration">0.02</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/> id assert True 
+ code assert True 
+ name assert True 
+ parent_code assert True 
+ parent_name assert True 
+ icon assert True 
+ href assert True 
+ type assert True 
+ status assert True 
+ remark assert True 
+ system_code assert True 
+ system_name assert True 
+ create_time assert True 
+ creator assert True 
+ update_time assert True 
+ updater assert True 
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">auto/plan/DatabaseTest/test_evcall01_authauthority.py::test_authauthority_primary_key</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">def test_auth_authority_columns_exist():<br/>    <br/>        authority = DBTestFunc(database_connector)<br/>    <br/>&gt;       authority.table_columns_exist(auth_authority[&quot;table_name&quot;], auth_authority[&quot;columns&quot;])<br/><br/>test_evcall01_authauthority.py:15: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;runnerFunction.DBTestFunc.DBTestFunc object at 0x0434E160&gt;, table_name = &#x27;auth_authority&#x27;, columns = [&#x27;id&#x27;, &#x27;code&#x27;, &#x27;name&#x27;, &#x27;parent_code&#x27;, &#x27;parent_name&#x27;, &#x27;icon&#x27;, ...]<br/><br/>    def table_columns_exist(self, table_name, columns):<br/>    <br/>&gt;       res = conn_str.has_columns(table_name, columns)<br/><span class="error">E       NameError: name &#x27;conn_str&#x27; is not defined</span><br/><br/>..\..\..\runnerFunction\DBTestFunc.py:16: NameError<br/></div></td></tr></tbody></table></body></html>
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/> id assert True 
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">auto/plan/DatabaseTest/test_evcall01_authauthority.py::test_authauthority_nullable</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/> name assert True 
+ parent_code assert True 
+ parent_name assert True 
+ icon assert True 
+ href assert True 
+ type assert True 
+ status assert True 
+ remark assert True 
+ create_time assert True 
+ creator assert True 
+ update_time assert True 
+ updater assert True 
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">auto/plan/DatabaseTest/test_evcall01_authauthority.py::test_authauthority_default</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/> name assert True 
+ parent_code assert True 
+ parent_name assert True 
+ icon assert True 
+ href assert True 
+ type assert True 
+ status assert True 
+ remark assert True 
+ create_time assert True 
+ creator assert True 
+ update_time assert True 
+ updater assert True 
+<br/></div></td></tr></tbody></table></body></html>
