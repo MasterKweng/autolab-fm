@@ -49,3 +49,13 @@ auth_permit_role = {
     "index": [],
     "default": {"role_code":None, "role_name":None, "create_time":"CURRENT_TIMESTAMP", "creator":None, "update_time":"CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP", "updater":None, "system_code":None, "system_name":None}
 }
+
+auth_permit_user = {
+    "table_name": "auth_permit_user",
+    "columns": ["id","auth_code", "auth_name", "user_id", "user_name", "sort", "create_time", "creator", "update_time", "updater", "system_code", "system_name"],
+    "primary_key": ["id"],
+    "nullable": ["auth_name", "user_id", "user_name", "sort", "create_time", "creator", "update_time", "updater", "system_code", "system_name"],
+    "unique": [],
+    "index": [],
+    "default": {"auth_name":None, "user_id":None, "user_name":None, "sort":None, "create_time":"CURRENT_TIMESTAMP", "creator":None, "update_time":"CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP", "updater":None, "system_code":None, "system_name":None}
+}
