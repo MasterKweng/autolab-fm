@@ -13,7 +13,6 @@ class DBTestFunc(object):
 
         self.conn_str = conn_str
 
-        print("222")
     
 
     def table_columns_exist(self, table_name, columns):
