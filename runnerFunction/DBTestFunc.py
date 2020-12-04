@@ -1,33 +1,29 @@
 # -*- coding:utf-8 -*-
 
+"""
+    初步封装，减少重复代码
+"""
 __author__ = "YuKwengRu"
 
-from runner.DBRunner import DBRunner
+from auto.conftest import database_connector
 
 class DBTestFunc(object):
 
     def __init__(self, conn_str):
 
-        self.con = conn_str
+        self.conn_str = conn_str
+
+        print("222")
     
 
-    def table_columns_exist(self, table_name, columns, conn_str):
+    def table_columns_exist(self, table_name, columns):
 
-        res = self.con.has_columns(table_name, columns)
+        res = self.conn_str.has_columns(table_name, columns)
     
         for col in columns:
             print("table %s has columns %s ? %s" % (table_name, col, res[col]))
 
             assert res[col]
-    # def table_columns_exist(self, table_name, columns):
-
-    #     res = self.conn_str.has_columns(table_name, columns)    
-
-    #     for col in columns:
-
-    #         print("table %s has columns %s ? %s" % (table_name, col, res[col]))
-
-    #         assert res[col]
 
     def table_primary_key(self, table_name, primary_key):
 
