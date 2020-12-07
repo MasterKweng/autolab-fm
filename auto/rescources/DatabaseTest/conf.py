@@ -69,3 +69,24 @@ auth_role = {
     "index": [],
     "default": {"status":None, "unit_id":None, "unit_name":None, "remark":None, "create_time":"CURRENT_TIMESTAMP", "creator":None, "update_time":"CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP", "updater":None}
 }
+
+
+auth_role_user = {
+    "table_name": "auth_role_user",
+    "columns": ["id","role_code", "role_name", "user_id", "user_name", "create_time", "creator", "update_time", "updater", "system_code", "system_name"],
+    "primary_key": ["id"],
+    "nullable": ["role_code", "role_name", "user_id", "user_name", "create_time", "creator", "update_time", "updater", "system_code", "system_name"],
+    "unique": [],
+    "index": [],
+    "default": {"role_code":None, "role_name":None, "user_id":None, "user_name":None, "create_time":"CURRENT_TIMESTAMP", "creator":None, "update_time":"CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP", "updater":None, "system_code":None, "system_name":None}
+}
+
+auth_sys_user = {
+    "table_name": "auth_sys_user",
+    "columns": ["id","sys_code", "sys_name", "user_id", "user_name", "create_time", "creator", "update_time", "updater"],
+    "primary_key": ["id"],
+    "nullable": ["user_id", "user_name", "create_time", "creator", "update_time", "updater"],
+    "unique": [],
+    "index": [],
+    "default": {"user_id":None, "user_name":None, "create_time":"CURRENT_TIMESTAMP", "creator":None, "update_time":"CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP", "updater":None}
+}
