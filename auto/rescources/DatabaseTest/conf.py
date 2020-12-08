@@ -90,3 +90,33 @@ auth_sys_user = {
     "index": [],
     "default": {"user_id":None, "user_name":None, "create_time":"CURRENT_TIMESTAMP", "creator":None, "update_time":"CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP", "updater":None}
 }
+
+auth_system = {
+    "table_name": "auth_system",
+    "columns": ["code","name", "status", "remark", "create_time", "creator", "update_time", "updater"],
+    "primary_key": ["code"],
+    "nullable": ["status", "remark", "create_time", "creator", "update_time", "updater"],
+    "unique": [],
+    "index": [],
+    "default": {"code":None, "name":None, "status":None, "remark":None, "create_time":"CURRENT_TIMESTAMP", "creator":None, "update_time":"CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP", "updater":None}
+}
+
+auth_unit = {
+    "table_name": "auth_unit",
+    "columns": ["id","auth_code", "auth_name", "unit_id", "unit_name", "create_time", "creator", "update_time", "updater", "system_code", "system_name"],
+    "primary_key": ["id"],
+    "nullable": ["unit_id", "unit_name", "create_time", "creator", "update_time", "updater", "system_code", "system_name"],
+    "unique": [],
+    "index": [],
+    "default": {"unit_id":None, "unit_name":None, "create_time":"CURRENT_TIMESTAMP", "creator":None, "update_time":"CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP", "updater":None, "system_code":None, "system_name":None}
+}
+
+cc_blacklist = {
+    "table_name": "cc_blacklist",
+    "columns": ["id","number", "source", "remark", "status", "type", "free_time", "create_time", "update_time"],
+    "primary_key": ["id"],
+    "nullable": ["source", "remark", "status", "type", "free_time", "create_time", "update_time"],
+    "unique": [],
+    "index": [],
+    "default": {"source":None, "remark":None, "status":None, "type":None, "free_time":None, "create_time":"CURRENT_TIMESTAMP", "update_time":"CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"}
+}
