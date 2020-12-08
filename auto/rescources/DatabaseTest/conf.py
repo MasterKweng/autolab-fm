@@ -120,3 +120,6 @@ cc_blacklist = {
     "index": [],
     "default": {"source":None, "remark":None, "status":None, "type":None, "free_time":None, "create_time":"CURRENT_TIMESTAMP", "update_time":"CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"}
 }
+cc_blacklist123={
+ "table_name": "cc_blacklist",
+} 
