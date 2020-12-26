@@ -5,7 +5,9 @@ __author__ = "YuKwengRu"
 import pytest
 from .rescources.DatabaseTest.conf import AUTOLAB
 from .rescources.DatabaseTest.conf import EV_CALL_01
-from runner.DBRunner import DBRunner 
+from runner.DBRunner import DBRunner
+from runner.HttpRunner import HttpRunner
+from auto.rescources.ApiTest.conf import login
 
 @pytest.fixture(scope="module")
 def database_connector():
@@ -15,7 +17,11 @@ def database_connector():
 
 @pytest.fixture
 def http_connector():
-    pass
+
+    hr = HttpRunner(base_url='https://sit.jshi9.com:17443/api', verify=False)
+    # res = hr.request(login["method"], login["uri"], params=login["params"])
+    # token = res.json()["data"]["userInfo"]["token"]
+    return hr
 
 @pytest.fixture
 def web_socket_connector():
