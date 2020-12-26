@@ -11,7 +11,7 @@ def test_demo_login(http_connector):
     res = http_connector.request(login["method"], login["uri"])
 #     , params=login["params"]
     rj = res.json()
-    print(rj)
+#     print(rj)
 #     print(rj["data"])
 #     print(rj["data"]["userInfo"]["token"])
 
