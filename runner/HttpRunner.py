@@ -22,7 +22,7 @@ class HttpRunner(Runner):
         a = requests.adapters.HTTPAdapter(max_retries=3)
         self.http.mount('http://', a)
         self.http.verify = verify
-        self.token="" # 登录token
+        # self.token="" # 登录token
 
         self.r = None
 
@@ -38,6 +38,7 @@ class HttpRunner(Runner):
             uri: 目标请求资源
             kwargs: 其他请求参数
             返回requests Response 对象
+            **kwargs
         """
         url = self.base_url + uri
         try:
