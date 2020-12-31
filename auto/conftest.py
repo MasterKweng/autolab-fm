@@ -26,19 +26,19 @@ def http_connector():
 
     # hr = HttpRunner(base_url='https://sit.jshi9.com:17443/api', verify=False)
     hr = HttpRunner(base_url='https://sit.jshi9.com:17443/api', verify=False)
-    res = hr.request(agent_login["method"], agent_login["uri"], params=agent_login["params"])
-    token = res.json()["data"]["userInfo"]["token"]
-    headers = {"token":token}
-    hr = HttpRunner(base_url='https://sit.jshi9.com:17443/api', verify=False, headers=headers)
+    # res = hr.request(agent_login["method"], agent_login["uri"], params=agent_login["params"])
+    # token = res.json()["data"]["userInfo"]["token"]
+    # headers = {"token":token}
+    # hr = HttpRunner(base_url='https://sit.jshi9.com:17443/api', verify=False, headers=headers)
 
-    return hr, token
+    return hr
     # return hr
 
 @pytest.fixture
-def agent_login():
+def agent_login(http_connector, cache):
 
-    hr = HttpRunner(base_url='https://sit.jshi9.com:17443/api', verify=False)
-    res = hr.request(agent_login["method"], agent_login["uri"], params=agent_login["params"])
+    # hr = http_connector
+    res = http_connector.request(agent_login["method"], agent_login["uri"], params=agent_login["params"])
     token = res.json()["data"]["userInfo"]["token"]
     headers = {"token":token}
     hr = HttpRunner(base_url='https://sit.jshi9.com:17443/api', verify=False, headers=headers)
