@@ -21,50 +21,49 @@ def database_connector():
 '''
     apitest fixture
 '''
-@pytest.fixture
-def http_connector():
+@pytest.fixture()
+def http_connector_fix():
 
-    # hr = HttpRunner(base_url='https://sit.jshi9.com:17443/api', verify=False)
     hr = HttpRunner(base_url='https://sit.jshi9.com:17443/api', verify=False)
-    # res = hr.request(agent_login["method"], agent_login["uri"], params=agent_login["params"])
-    # token = res.json()["data"]["userInfo"]["token"]
-    # headers = {"token":token}
-    # hr = HttpRunner(base_url='https://sit.jshi9.com:17443/api', verify=False, headers=headers)
-
+    print("hc init success")
     return hr
-    # return hr
 
 @pytest.fixture
-def agent_login(http_connector, cache):
+def agent_login_fix(http_connector_fix, cache):
+    hr = http_connector_fix
 
-    # hr = http_connector
-    res = http_connector.request(agent_login["method"], agent_login["uri"], params=agent_login["params"])
-    token = res.json()["data"]["userInfo"]["token"]
-    headers = {"token":token}
+    agent_token = cache.get("agent_token", None)
+    if agent_token is None:
+        print("no cache agent_token")
+        res = hr.request(agent_login["method"], agent_login["uri"], params=agent_login["params"])
+        agent_token = res.json()["data"]["userInfo"]["token"]
+        cache.set("agent_token", agent_token)
+        agent_token = cache.get("agent_token", None)
+
+    headers = {"token":agent_token}
     hr = HttpRunner(base_url='https://sit.jshi9.com:17443/api', verify=False, headers=headers)
-
-    return hr, token
+    # print("al init success")
+    return hr, agent_token
 
 @pytest.fixture
-def doctor_login():
+def doctor_login_fix():
 
     pass
 
 @pytest.fixture
-def driver_login():
+def driver_login_fix():
 
     pass
-@pytest.fixture
-def create_task_help(agent_login, cache):
 
-    hr = agent_login()
-    
+@pytest.fixture
+def create_task_help_fix(agent_login_fix, cache):
+    hr, token = agent_login_fix
+
     help_id = cache.get("help_id", 0)
-    first_dispatch_id = cache.get("dispatch_id", 0)
+    first_dispatch_id = cache.get("first_dispatch_id", 0)
     if help_id == 0 or first_dispatch_id == 0:
         print("no cahce")
         res = hr.request(create_task_help["method"], create_task_help["uri"], params = create_task_help["params"])
-        # print(res.json())
         rj = res.json()
         assert rj["code"] == 1
         cache.set("help_id", rj["data"]["id"])
@@ -76,6 +75,7 @@ def create_task_help(agent_login, cache):
 '''
     websocket fixture
 '''
+
 @pytest.fixture
 def web_socket_connector():
     pass
