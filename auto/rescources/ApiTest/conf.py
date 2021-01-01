@@ -2,22 +2,39 @@
 
 __author__ = "YuKwengRu"
 
-login = {
+# from auto.conftest import http_connector
+
+# hr, token = http_connector
+
+agent_login = {
     "method": "POST",
-    # "uri": "/accountLogin/gen/unit/agent",
-    "uri": "/help/agent/create",
-    # "params": {
-    #     "userType":"agent", "account":"0000", "loginMode":"job", "password":"123456", "unitId":"76"
-    # }
+    "uri": "/accountLogin/gen/unit/agent",
+    "params": {
+        "userType":"agent", "account":"0000", "loginMode":"job", "password":"123456", "unitId":"76"
+    }
 }
 
-create = {
+create_task_help = {
     "method": "POST",
     "uri": "/help/agent/create",
-    # "headers": {
-    #     "token": "160897463827867397befb4384803bf9f153052d729f3"
-    # # },
-    # "params": {
-    #     "phone": "11111111111"
-    # }
+    "params": {
+        "phone": "11111111111", "remark": "auto_hub_jsfj"
+    }
+}
+
+assign = {
+    "method": "POST",
+    "uri": "/carOut/agent/assign"
+}
+
+onTask_my = {
+    "method": "GET",
+    "uri": "/help/agent/onTask",
+    "params": {
+        "type": 1
+    }
+}
+
+cancel = {
+
 }

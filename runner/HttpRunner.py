@@ -13,7 +13,7 @@ from requests.auth import HTTPBasicAuth
 from .runner import Runner
 
 class HttpRunner(Runner):
-    def __init__(self, base_url="127.0.0.1", verify=False):
+    def __init__(self, base_url="127.0.0.1", verify=False, headers = {}):
         super().__init__(name="Http Runner")
         self.base_url = base_url
         self.http = requests.Session()
@@ -22,7 +22,8 @@ class HttpRunner(Runner):
         a = requests.adapters.HTTPAdapter(max_retries=3)
         self.http.mount('http://', a)
         self.http.verify = verify
-        # self.token="" # 登录token
+        self.http.headers = headers
+        self.token="" # 登录token
 
         self.r = None
 
