@@ -8,5 +8,5 @@ def assertAndNotify(code, case, reason):
     try:
         assert code == 1
     except Exception as e:
-        msg = "EVCALL Test Faild \nCase:"+case+ "\nReason:"+reason+""
+        msg = "EVCALL Test Faild \nCase: "+case+ "\nReason: "+reason+""
         send_dingtalk_msg(msg)
