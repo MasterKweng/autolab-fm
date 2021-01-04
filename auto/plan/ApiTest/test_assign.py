@@ -10,6 +10,8 @@ from auto.rescources.ApiTest.conf import assign
 
 from auto.rescources.ApiTest.conf_task_code import unit_dict
 
+from utils.notify import send_dingtalk_msg
+
 import pytest
 
 def test_assign(create_task_help_fix):
@@ -24,5 +26,9 @@ def test_assign(create_task_help_fix):
     res = hr.request(assign["method"], assign["uri"], params = {"ambId":ambId, "dispatchId":fist_dis_id, "type": "first"})
     rj = res.json()
     print(rj)
-    assert rj["code"] == 1
+    try:
+        assert rj["code"] == 1
+    except Exception as e:
+        send_dingtalk_msg("EVCALL FAILD")
+    # assert rj["code"] == 1
     print("task car out id is : %s \n" % (rj["data"]))
