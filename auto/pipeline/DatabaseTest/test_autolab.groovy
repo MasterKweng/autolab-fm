@@ -49,12 +49,14 @@ node {
             if(currentBuild.currentResult == "SUCCESS"){
                 // build success,do nothing
                 echo "It's build SUCCESS"
-                dingTalk (accessToken:"${DING_TOKEN}", imageUrl:'', jenkinsUrl:'http://192.168.2.197:8081/', message: "EVCALL:${currentBuild.projectName} \n构建号:#${currentBuild.number} \n结果:${currentBuild.currentResult}", notifyPeople: '')
+                // dingTalk (accessToken:"${DING_TOKEN}", imageUrl:'', jenkinsUrl:'http://192.168.2.197:8081/', message: "EVCALL:${currentBuild.projectName} \n构建号:#${currentBuild.number} \n结果:${currentBuild.currentResult}", notifyPeople: '')
+                dingTalk ("EVCALL TESTING SUCCESS")
             }
             else{
                 // build failure or abort send dingTalk
                 echo "It's build Faild"
-                dingTalk (accessToken:"${DING_TOKEN}", imageUrl:'', jenkinsUrl:'http://192.168.2.197:8081/', message: "EVCALL:${currentBuild.projectName} \n构建号:#${currentBuild.number} \n结果:${currentBuild.currentResult}", notifyPeople: '')
+                // dingTalk (accessToken:"${DING_TOKEN}", imageUrl:'', jenkinsUrl:'http://192.168.2.197:8081/', message: "EVCALL:${currentBuild.projectName} \n构建号:#${currentBuild.number} \n结果:${currentBuild.currentResult}", notifyPeople: '')
+                dingTalk ("EVCALL TESTING FAILD")
             }
         }
     }
