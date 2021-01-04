@@ -7,24 +7,24 @@ __author__ = "YuKwengRu"
     2、中心取消所有任务
 '''
 
-from auto.rescources.ApiTest.conf import cancel, onTask_my
+# from auto.rescources.ApiTest.conf import cancel, onTask_my
 
-from auto.conftest import http_connector
+# from auto.conftest import http_connector
 
-from auto.rescources.ApiTest.conf_task_code import unit_dict
+# from auto.rescources.ApiTest.conf_task_code import unit_dict
 
-help_task_lists = []
-def test_myHelpTask(http_connector):
-    '''
-        查询当前用户所有任务
-    '''
+# help_task_lists = []
+# def test_myHelpTask(http_connector):
+#     '''
+#         查询当前用户所有任务
+#     '''
 
-    global help_task_lists
+#     global help_task_lists
 
-    hc, token = http_connector
+#     hc, token = http_connector
 
-    res = hc.request(onTask_my["method"], )
-# GET /api/help/agent/onTask?type=1 HTTP/1.1
+#     res = hc.request(onTask_my["method"], )
+# # GET /api/help/agent/onTask?type=1 HTTP/1.1
 # Host: sit.jshi9.com:17443
 # Connection: keep-alive
 # Accept: application/json, text/plain, */*
