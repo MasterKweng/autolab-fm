@@ -49,12 +49,12 @@ node {
             if(currentBuild.currentResult == "SUCCESS"){
                 // build success,do nothing
                 echo "It's build SUCCESS"
-                dingTalk (robot: "ea560ca0-b1d8-400a-8267-682bb1b3d321", type: "TEXT", at:["+86-18203017916"], atAll:true, title: "${currentBuild.projectName} BUILD ${currentBuild.currentResult}!",text: ["项目:${currentBuild.projectName}", "构建号:#${currentBuild.number}","结果:${currentBuild.currentResult}"], messageUrl: "http://192.168.2.197:8081/job/EVCALL-AUTO-TEST/", picUrl:'https://images.669pic.com/element_min_new_pic/60/25/33/43/a59876e1871d8119f88a7557d611869e.png', singleTitle:'',btns: [], hideAvatar: false)
+                // dingTalk (robot: "ea560ca0-b1d8-400a-8267-682bb1b3d321", type: "TEXT", at:[], atAll:true, title: "${currentBuild.projectName} BUILD ${currentBuild.currentResult}!",text: ["项目:${currentBuild.projectName}", "构建号:#${currentBuild.number}","结果:${currentBuild.currentResult}"], messageUrl: "http://192.168.2.197:8081/job/EVCALL-AUTO-TEST/", picUrl:'https://images.669pic.com/element_min_new_pic/60/25/33/43/a59876e1871d8119f88a7557d611869e.png', singleTitle:'',btns: [], hideAvatar: false)
             }
             else{
                 // build failure or abort send dingTalk
                 echo "It's build Faild"
-                dingTalk (robot: "ea560ca0-b1d8-400a-8267-682bb1b3d321", type: "TEXT", at:["+86-18203017916"], atAll:true, title: "${currentBuild.projectName} BUILD ${currentBuild.currentResult}!",text: ["项目:${currentBuild.projectName}", "构建号:#${currentBuild.number}","结果:${currentBuild.currentResult}"], messageUrl: "http://192.168.2.197:8081/job/EVCALL-AUTO-TEST/", picUrl:'https://img95.699pic.com/element/40136/9148.png_300.png', singleTitle:'',btns: [], hideAvatar: false)          
+                dingTalk (robot: "ea560ca0-b1d8-400a-8267-682bb1b3d321", type: "TEXT", at:[], atAll:true, title: "${currentBuild.projectName} BUILD ${currentBuild.currentResult}!",text: ["项目:${currentBuild.projectName}", "构建号:#${currentBuild.number}","结果:${currentBuild.currentResult}"], messageUrl: "http://192.168.2.197:8081/job/EVCALL-AUTO-TEST/", picUrl:'https://img95.699pic.com/element/40136/9148.png_300.png', singleTitle:'',btns: [], hideAvatar: false)          
                      
             }
         }

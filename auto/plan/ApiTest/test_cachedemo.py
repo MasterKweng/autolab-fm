@@ -1,10 +1,16 @@
 
-def test_e(create_task_help_fix):
-    a,t = create_task_help_fix
+
+def test_f(doctor_login_fix):
+    a,t = doctor_login_fix
     print(a)
     print(t)
 
-def test_f(create_task_help_fix):
-    a,t = create_task_help_fix
+def test_e(agent_login_fix):
+    a,t = agent_login_fix
+    print(a)
+    print(t)
+
+def test_g(driver_login_fix):
+    a,t = driver_login_fix
     print(a)
     print(t)

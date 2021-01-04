@@ -9,8 +9,24 @@ __author__ = "YuKwengRu"
 agent_login = {
     "method": "POST",
     "uri": "/accountLogin/gen/unit/agent",
-    "params": {
+    "params":{
         "userType":"agent", "account":"0000", "loginMode":"job", "password":"123456", "unitId":"76"
+    }
+}
+
+doctor_login = {
+    "method": "POST",
+    "uri": "/accountLogin/gen/unit/doctor",
+    "params": {
+        "userType":"doctor", "account":"0001", "loginMode":"job", "password":"123456", "unitId":"76"
+    }
+}
+
+driver_login = {
+    "method": "POST",
+    "uri": "/accountLogin/gen/unit/driver",
+    "params":{
+        "userType":"driver", "account":"0002", "loginMode":"job", "password":"123456", "unitId":"76"
     }
 }
 
