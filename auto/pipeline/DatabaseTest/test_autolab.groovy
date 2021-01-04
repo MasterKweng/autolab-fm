@@ -50,13 +50,13 @@ node {
                 // build success,do nothing
                 echo "It's build SUCCESS"
                 // dingTalk (accessToken:"${DING_TOKEN}", imageUrl:'', jenkinsUrl:'http://192.168.2.197:8081/', message: "EVCALL:${currentBuild.projectName} \n构建号:#${currentBuild.number} \n结果:${currentBuild.currentResult}", notifyPeople: '')
-                dingTalk (robot: "ea560ca0-b1d8-400a-8267-682bb1b3d321", type: "TEXT", text: ["项目:${currentBuild.projectName}", "构建号:#${currentBuild.number}","结果:${currentBuild.currentResult}"], atAll:true)
+                dingTalk (robot: "ea560ca0-b1d8-400a-8267-682bb1b3d321", type: "TEXT", at:[], atAll:true, title: "{currentBuild.projectName} BUILD SUCCESS!",text: ["项目:${currentBuild.projectName}", "构建号:#${currentBuild.number}","结果:${currentBuild.currentResult}"], messageUrl: "", picUrl:'', singleTitle:'',btns: [], hideAvatar: false)
             }
             else{
                 // build failure or abort send dingTalk
                 echo "It's build Faild"
                 // dingTalk (accessToken:"${DING_TOKEN}", imageUrl:'', jenkinsUrl:'http://192.168.2.197:8081/', message: "EVCALL:${currentBuild.projectName} \n构建号:#${currentBuild.number} \n结果:${currentBuild.currentResult}", notifyPeople: '')
-                dingTalk (robot: "ea560ca0-b1d8-400a-8267-682bb1b3d321", type: "TEXT", text: ["项目:${currentBuild.projectName}", "构建号:#${currentBuild.number}","结果:${currentBuild.currentResult}"], atAll:true)
+                dingTalk (robot: "ea560ca0-b1d8-400a-8267-682bb1b3d321", type: "TEXT", at:[], atAll:true, title: "{currentBuild.projectName} BUILD SUCCESS!",text: ["项目:${currentBuild.projectName}", "构建号:#${currentBuild.number}","结果:${currentBuild.currentResult}"], messageUrl: "", picUrl:'', singleTitle:'',btns: [], hideAvatar: false)                
             }
         }
     }
