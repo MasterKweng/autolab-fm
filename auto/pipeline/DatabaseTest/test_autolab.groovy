@@ -49,12 +49,12 @@ node {
             if(currentBuild.currentResult == "SUCCESS"){
                 // build success,do nothing
                 echo "It's build SUCCESS"
-                dingTalk {accessToken:"https://oapi.dingtalk.com/robot/send?access_token=9dbc2d63bc2d3d7f56ec0b5e98ce6c94345ba26b771f12dd80e2b06aaebda2fb", imageUrl:'', jenkinsUrl:'http://192.168.2.197:8081/', message: "EVCALL:${currentBuild.projectName} \n构建号:#${currentBuild.number} \n结果:${currentBuild.currentResult}", notifyPeople: ''}
+                dingTalk {accessToken:"${DING_TOKEN}", imageUrl:'', jenkinsUrl:'http://192.168.2.197:8081/', message: "EVCALL:${currentBuild.projectName} \n构建号:#${currentBuild.number} \n结果:${currentBuild.currentResult}", notifyPeople: ''}
             }
             else{
                 // build failure or abort send dingTalk
                 echo "It's build Faild"
-                dingTalk accessToken:"https://oapi.dingtalk.com/robot/send?access_token=9dbc2d63bc2d3d7f56ec0b5e98ce6c94345ba26b771f12dd80e2b06aaebda2fb", imageUrl:'', jenkinsUrl:'http://192.168.2.197:8081/', message: "EVCALL:${currentBuild.projectName} \n构建号:#${currentBuild.number} \n结果:${currentBuild.currentResult}", notifyPeople: ''
+                dingTalk accessToken:"${DING_TOKEN}", imageUrl:'', jenkinsUrl:'http://192.168.2.197:8081/', message: "EVCALL:${currentBuild.projectName} \n构建号:#${currentBuild.number} \n结果:${currentBuild.currentResult}", notifyPeople: ''
             }
         }
     }
