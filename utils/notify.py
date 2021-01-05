@@ -15,6 +15,12 @@ def send_dingtalk_msg(msg):
         "msgtype": "text",
         "text":{
             "content": msg
+        },
+        "at":{
+            "atMobiles":[
+                "18203017916"
+            ],
+            "isAtAll": "false"
         }
     }
     res=requests.post(DINGTALK_URL,data=json.dumps(data),headers=headers)
