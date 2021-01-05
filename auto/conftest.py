@@ -7,7 +7,7 @@ from .rescources.DatabaseTest.conf import AUTOLAB
 from .rescources.DatabaseTest.conf import EV_CALL_01
 from runner.DBRunner import DBRunner
 from runner.HttpRunner import HttpRunner
-from auto.rescources.ApiTest.conf import agent_login, doctor_login, driver_login, create_task_help
+from auto.rescources.ApiTest.conf import agent_login, doctor_login, driver_login, create_task_help, is_work
 
 '''
     dbtest fixture
@@ -60,7 +60,10 @@ def doctor_login_fix(http_connector_fix, cache):
 
     headers = {"token":doctor_token}
     hr = HttpRunner(base_url='https://sit.jshi9.com:17443/api', verify=False, headers=headers)
-    return hr, doctor_token
+    res = hr.request(is_work["method"], is_work["uri"])
+    workstate = res.json()["data"]
+
+    return hr, doctor_token, workstate
 
 @pytest.fixture
 def driver_login_fix(http_connector_fix, cache):
@@ -76,11 +79,16 @@ def driver_login_fix(http_connector_fix, cache):
 
     headers = {"token":driver_token}
     hr = HttpRunner(base_url='https://sit.jshi9.com:17443/api', verify=False, headers=headers)
-    return hr, driver_token
+    res = hr.request(is_work["method"], is_work["uri"])
+    workstate = res.json()["data"]
+
+    return hr, driver_token, workstate
 
 @pytest.fixture
 def create_task_help_fix(agent_login_fix, cache):
+
     hr, token = agent_login_fix
+    agent_token = cache.get("agent_token", None)
 
     help_id = cache.get("help_id", 0)
     first_dispatch_id = cache.get("first_dispatch_id", 0)
@@ -93,6 +101,8 @@ def create_task_help_fix(agent_login_fix, cache):
         cache.set("first_dispatch_id", rj["data"]["dispatchId"])
         help_id = cache.get("help_id", 0)
         first_dispatch_id = cache.get("first_dispatch_id", 0)
+    headers = {"token":agent_token}
+    hr = HttpRunner(base_url='https://sit.jshi9.com:17443/api', verify=False, headers=headers)
     return hr, help_id, first_dispatch_id
     
 '''

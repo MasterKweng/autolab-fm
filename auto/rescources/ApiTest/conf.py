@@ -2,7 +2,7 @@
 
 __author__ = "YuKwengRu"
 
-# from auto.conftest import http_connector
+from auto.rescources.ApiTest.conf_task_code import unit_dict
 
 # hr, token = http_connector
 
@@ -30,6 +30,20 @@ driver_login = {
     }
 }
 
+to_work = {
+    "method": "GET",
+    "uri": "/attendance/gen/toWork?carId=48",
+}
+
+off_work = {
+    "method": "GET",
+    "uri": "/attendance/gen/offWork",
+}
+
+is_work = {
+    "method": "GET",
+    "uri": "/attendance/gen/isWork",
+}
 create_task_help = {
     "method": "POST",
     "uri": "/help/agent/create",

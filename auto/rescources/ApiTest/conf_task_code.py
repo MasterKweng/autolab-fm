@@ -17,11 +17,11 @@ unit_dict = {
     "center":{
         "unitId":"76",
         "siteId":{
-            82:{
-            "ambId":[48, 50, 51, 52], "doctorId": [64, 71, 168], "driverId":[65, 166, 167, 169]
+            "site1":{
+            "unitId":"82", "ambId":[48, 50, 51, 52], "doctorId": [64, 71, 168], "driverId":[65, 166, 167, 169]
             }, 
-            116:{
-            "ambId":[62, 63], "doctorId": [], "driverId":[]
+            "site2":{
+            "unitId":"116", "ambId":[62, 63], "doctorId": [], "driverId":[]
             }, 
         }
     },
@@ -30,7 +30,8 @@ unit_dict = {
         "siteId":{
             82:{
             "ambId":[48, 50, 51, 52], "doctorId": [64, 71, 168], "driverId":[65, 166, 167, 169]
-            }, 116:{
+            }, 
+            116:{
             "ambId":[62, 63], "doctorId": [], "driverId":[]
             }, 
         },

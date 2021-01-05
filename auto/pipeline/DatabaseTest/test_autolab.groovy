@@ -24,7 +24,7 @@ node {
             sh "pwd"
             sh "cd ./auto/plan/DatabaseTest/"
             // sh "pytest ${testplan} --html=./logs/report.html --self-contained-html"
-            sh "pytest  --html=./logs/report.html --self-contained-html"
+            sh "pytest  --cache-clear --html=./logs/report.html --self-contained-html"
             // sh "pytest"
         }
     }

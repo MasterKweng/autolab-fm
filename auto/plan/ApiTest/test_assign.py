@@ -12,7 +12,6 @@ from auto.rescources.ApiTest.conf_task_code import unit_dict
 
 from utils.assertAndNotify import assertAndNotify
 
-import pytest
 
 def test_assign(create_task_help_fix):
     '''
@@ -21,17 +20,9 @@ def test_assign(create_task_help_fix):
     '''
 
     hr, help_id, fist_dis_id = create_task_help_fix
-    ambId = unit_dict["center"]["siteId"][82]["ambId"][0]
-    # print(dispatch_id)
+    ambId = unit_dict["center"]["siteId"]["site1"]["ambId"][0]
+    # print(hr.headers)
     res = hr.request(assign["method"], assign["uri"], params = {"ambId":ambId, "dispatchId":fist_dis_id, "type": "first"})
     rj = res.json()
-    # print(rj)
-    # reason = rj["msg"]
-    assertAndNotify(rj["code"], "test_assign", rj["msg"])
-    # try:
-    #     assert rj["code"] == 1
-    # except Exception as e:
-    #     msg = "Test Faild \nCase:test_assign \nReason:"
-    #     send_dingtalk_msg(msg)
-    # assert rj["code"] == 1
-    # print("task car out id is : %s \n" % (rj["data"]))
+    print(rj)
+    # assertAndNotify(rj["code"], "test_assign", rj["msg"])
