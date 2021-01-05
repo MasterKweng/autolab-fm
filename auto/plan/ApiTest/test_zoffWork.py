@@ -11,6 +11,7 @@ from auto.rescources.ApiTest.conf_task_code import unit_dict
 
 from utils.assertAndNotify import assertAndNotify
 
+from time import sleep
 
 def test_docOffWork(doctor_login_fix):
 
@@ -19,9 +20,10 @@ def test_docOffWork(doctor_login_fix):
     if workstate:        
         res = hr.request(off_work["method"], off_work["uri"])
         rj = res.json()
-        assertAndNotify(rj["code"], "test_docToWork", rj["msg"])
+        assertAndNotify(rj["code"], 1, "test_docToWork", rj["msg"])
     else:
         pass
+    sleep(10)
     
 def test_driOffWork(driver_login_fix):
 
@@ -30,6 +32,8 @@ def test_driOffWork(driver_login_fix):
     if workstate:
         res = hr.request(off_work["method"], off_work["uri"])
         rj = res.json()
-        assertAndNotify(rj["code"], "test_driToWork", rj["msg"])
+        assertAndNotify(rj["code"], 1, "test_driToWork", rj["msg"])
     else:
         pass
+    sleep(10)
+

@@ -12,6 +12,7 @@ from auto.rescources.ApiTest.conf_task_code import unit_dict
 
 from utils.assertAndNotify import assertAndNotify
 
+from time import sleep
 
 def test_assign(create_task_help_fix):
     '''
@@ -24,5 +25,7 @@ def test_assign(create_task_help_fix):
     # print(hr.headers)
     res = hr.request(assign["method"], assign["uri"], params = {"ambId":ambId, "dispatchId":fist_dis_id, "type": "first"})
     rj = res.json()
+    print("派车")
     print(rj)
-    # assertAndNotify(rj["code"], "test_assign", rj["msg"])
+    assertAndNotify(rj["code"], 1, "test_assign", rj["msg"])
+    sleep(10)

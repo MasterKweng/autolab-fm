@@ -57,6 +57,36 @@ assign = {
     "uri": "/carOut/agent/assign"
 }
 
+accept = {
+    "method": "GET",
+    "uri": "/carOut/gen/accept?ambId=48"
+}
+
+departure = {
+    "method": "GET",
+    "uri": "/carOut/gen/departure?ambId=48"
+}
+
+arriveSite = {
+    "method": "GET",
+    "uri": "/carOut/gen/arriveSite?ambId=48"
+}
+
+returnHospital = {
+    "method": "GET",
+    "uri": "/carOut/gen/return?ambId=48"
+}
+
+arriveHospital ={
+    "method": "GET",
+    "uri": "/carOut/gen/arriveHospital?ambId=48"
+}
+
+pending = {
+    "method": "GET",
+    "uri": "/carOut/gen/pending?status=1"
+}
+
 onTask_my = {
     "method": "GET",
     "uri": "/help/agent/onTask",
@@ -65,6 +95,10 @@ onTask_my = {
     }
 }
 
+complete = {
+    "method": "POST",
+    "uri": "/dispatch/agent/complete"    
+}
 cancel = {
 
 }

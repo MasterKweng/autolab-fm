@@ -11,6 +11,7 @@ from auto.rescources.ApiTest.conf_task_code import unit_dict
 
 from utils.assertAndNotify import assertAndNotify
 
+from time import sleep
 
 def test_docToWork(doctor_login_fix):
 
@@ -22,7 +23,9 @@ def test_docToWork(doctor_login_fix):
         ambId = unit_dict["center"]["siteId"]["site1"]["ambId"][0]
         res = hr.request(to_work["method"], to_work["uri"])
         rj = res.json()
-        assertAndNotify(rj["code"], "test_docToWork", rj["msg"])
+        assertAndNotify(rj["code"], 1, "test_docToWork", rj["msg"])
+    sleep(10)
+    
 
 def test_driToWork(driver_login_fix):
 
@@ -35,4 +38,6 @@ def test_driToWork(driver_login_fix):
         ambId = unit_dict["center"]["siteId"]["site1"]["ambId"][0]
         res = hr.request(to_work["method"], to_work["uri"])
         rj = res.json()
-        assertAndNotify(rj["code"], "test_driToWork", rj["msg"])
+        assertAndNotify(rj["code"], 1, "test_driToWork", rj["msg"])
+    sleep(10)
+    
