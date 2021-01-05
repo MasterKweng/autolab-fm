@@ -2,7 +2,7 @@
 
 __author__ = "YuKwengRu"
 
-# from auto.conftest import http_connector
+from auto.rescources.ApiTest.conf_task_code import unit_dict
 
 # hr, token = http_connector
 
@@ -30,6 +30,20 @@ driver_login = {
     }
 }
 
+to_work = {
+    "method": "GET",
+    "uri": "/attendance/gen/toWork?carId=48",
+}
+
+off_work = {
+    "method": "GET",
+    "uri": "/attendance/gen/offWork",
+}
+
+is_work = {
+    "method": "GET",
+    "uri": "/attendance/gen/isWork",
+}
 create_task_help = {
     "method": "POST",
     "uri": "/help/agent/create",
@@ -43,6 +57,36 @@ assign = {
     "uri": "/carOut/agent/assign"
 }
 
+accept = {
+    "method": "GET",
+    "uri": "/carOut/gen/accept?ambId=48"
+}
+
+departure = {
+    "method": "GET",
+    "uri": "/carOut/gen/departure?ambId=48"
+}
+
+arriveSite = {
+    "method": "GET",
+    "uri": "/carOut/gen/arriveSite?ambId=48"
+}
+
+returnHospital = {
+    "method": "GET",
+    "uri": "/carOut/gen/return?ambId=48"
+}
+
+arriveHospital ={
+    "method": "GET",
+    "uri": "/carOut/gen/arriveHospital?ambId=48"
+}
+
+pending = {
+    "method": "GET",
+    "uri": "/carOut/gen/pending?status=1"
+}
+
 onTask_my = {
     "method": "GET",
     "uri": "/help/agent/onTask",
@@ -51,6 +95,10 @@ onTask_my = {
     }
 }
 
+complete = {
+    "method": "POST",
+    "uri": "/dispatch/agent/complete"    
+}
 cancel = {
 
 }

@@ -7,7 +7,8 @@ from .rescources.DatabaseTest.conf import AUTOLAB
 from .rescources.DatabaseTest.conf import EV_CALL_01
 from runner.DBRunner import DBRunner
 from runner.HttpRunner import HttpRunner
-from auto.rescources.ApiTest.conf import agent_login, doctor_login, driver_login, create_task_help
+from auto.rescources.ApiTest.conf import agent_login, doctor_login, driver_login, create_task_help, is_work
+from utils.assertAndNotify import assertAndNotify
 
 '''
     dbtest fixture
@@ -36,8 +37,8 @@ def agent_login_fix(http_connector_fix, cache):
     if agent_token is None:
         print("no cache agent_token")
         res = hr.request(agent_login["method"], agent_login["uri"], params=agent_login["params"])
-        # rj = res.json()
-        # print(rj)
+        rs = str(res)[-5:-2]
+        assertAndNotify(rs,"200", "agent_login_fix", rs)
         agent_token = res.json()["data"]["userInfo"]["token"]
         cache.set("agent_token", agent_token)
         agent_token = cache.get("agent_token", None)
@@ -54,13 +55,18 @@ def doctor_login_fix(http_connector_fix, cache):
     if doctor_token is None:
         print("no cache doctor_token")
         res = hr.request(doctor_login["method"], doctor_login["uri"], params=doctor_login["params"])
+        rs = str(res)[-5:-2]
+        assertAndNotify(rs,"200", "agent_login_fix", rs)
         doctor_token = res.json()["data"]["userInfo"]["token"]
         cache.set("doctor_token", doctor_token)
         doctor_token = cache.get("doctor_token", None)
 
     headers = {"token":doctor_token}
     hr = HttpRunner(base_url='https://sit.jshi9.com:17443/api', verify=False, headers=headers)
-    return hr, doctor_token
+    res = hr.request(is_work["method"], is_work["uri"])
+    workstate = res.json()["data"]
+
+    return hr, doctor_token, workstate
 
 @pytest.fixture
 def driver_login_fix(http_connector_fix, cache):
@@ -70,16 +76,22 @@ def driver_login_fix(http_connector_fix, cache):
     if driver_token is None:
         print("no cache driver_token")
         res = hr.request(driver_login["method"], driver_login["uri"], params=driver_login["params"])
+        rs = str(res)[-5:-2]
+        assertAndNotify(rs,"200", "agent_login_fix", rs)
         driver_token = res.json()["data"]["userInfo"]["token"]
         cache.set("driver_token", driver_token)
         driver_token = cache.get("driver_token", None)
 
     headers = {"token":driver_token}
     hr = HttpRunner(base_url='https://sit.jshi9.com:17443/api', verify=False, headers=headers)
-    return hr, driver_token
+    res = hr.request(is_work["method"], is_work["uri"])
+    workstate = res.json()["data"]
+
+    return hr, driver_token, workstate
 
 @pytest.fixture
 def create_task_help_fix(agent_login_fix, cache):
+
     hr, token = agent_login_fix
 
     help_id = cache.get("help_id", 0)
@@ -88,7 +100,8 @@ def create_task_help_fix(agent_login_fix, cache):
         print("no cahce")
         res = hr.request(create_task_help["method"], create_task_help["uri"], params = create_task_help["params"])
         rj = res.json()
-        assert rj["code"] == 1
+        rs = str(res)[-5:-2]
+        assertAndNotify(rs,"200", "agent_login_fix", rs)
         cache.set("help_id", rj["data"]["id"])
         cache.set("first_dispatch_id", rj["data"]["dispatchId"])
         help_id = cache.get("help_id", 0)
