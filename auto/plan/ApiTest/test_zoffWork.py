@@ -32,7 +32,7 @@ def test_driOffWork(driver_login_fix):
     if workstate:
         res = hr.request(off_work["method"], off_work["uri"])
         rj = res.json()
-        assertAndNotify(rj["code"], 1, "test_driToWork", rj["msg"])
+        assertAndNotify(rj["code"], 1, "test_driOffWork", rj["msg"])
     else:
         pass
     sleep(10)
