@@ -46,22 +46,22 @@ class DBRunner(Runner):
     
     def is_primary_key(self, table_name, columns_name=[]):
         res = {}
+
+        keys = self.insp.get_pk_constraint(table_name)
         for  col in columns_name:
-            res[col] = self.__find_column(table_name, col) !=None
+            res[col] = col in keys["constrained_columns"]
         
         return res
     
     def is_unique(self, table_name, columns_name=[]):
         res = {}
-
         unique_columns = self.insp.get_unique_constraints(table_name)
         for col in columns_name:
             res[col] = False
             for unique in unique_columns:
-                if col == unique["column_names"][0]:
+                if col in unique["column_names"]:
                     res[col] = True
                     break
-
         return res
     
     def has_index(self, table_name, columns_name = []):
@@ -71,8 +71,9 @@ class DBRunner(Runner):
         for col in columns_name:
             res[col] = False
             for index in indexes:
-                if col == index["columns_name"][0]:
+                if col in index["column_names"]:
                     res[col] = True
+                    break
         
         return res
 

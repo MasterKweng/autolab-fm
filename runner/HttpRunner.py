@@ -105,6 +105,3 @@ class HttpRunner(Runner):
         """
 
         self.http.close()    
-
-    
-

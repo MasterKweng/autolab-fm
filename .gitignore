@@ -1,2 +1,5 @@
-.pyc
-.vscode
+# configGlobal.py
+__pycache__/
+.pytest_cache/
+# conf_api.py
+# conf_db.py

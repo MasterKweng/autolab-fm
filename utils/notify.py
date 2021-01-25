@@ -6,7 +6,7 @@ import json
 
 import requests
 
-from conf.conf import DINGTALK_URL
+from conf.configGlobal import DINGTALK_URL
 
 # 发送钉钉文本通知
 def send_dingtalk_msg(msg):

@@ -15,14 +15,14 @@ task_code = {
 # 暂时使用写死数据，后续迭代可以考虑直接数据库读取
 unit_dict = {
     "center":{
-        "unitId":"76",
+        "unitId":"232",
         "siteId":{
             "site1":{
-            "unitId":"82", "ambId":[48, 50, 51, 52], "doctorId": [64, 71, 168], "driverId":[65, 166, 167, 169]
+            "unitId":"233", "ambId":[109], "doctorId": [252], "driverId":[253]
             }, 
-            "site2":{
-            "unitId":"116", "ambId":[62, 63], "doctorId": [], "driverId":[]
-            }, 
+            # "site2":{
+            # "unitId":"116", "ambId":[62, 63], "doctorId": [], "driverId":[]
+            # }, 
         }
     },
     "sub":{

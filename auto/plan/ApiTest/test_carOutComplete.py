@@ -5,7 +5,7 @@ __author__ = "YuKwengRu"
 '''
     1、医生或司机完成任务
 '''
-from auto.rescources.ApiTest.conf import accept, departure, arriveSite, returnHospital, arriveHospital, pending
+from auto.rescources.ApiTest.conf_api import accept, departure, arriveSite, returnHospital, arriveHospital, pending
 
 from auto.rescources.ApiTest.conf_task_code import unit_dict
 
@@ -26,7 +26,7 @@ def test_accept(doctor_login_fix):
     rj = res.json()
     print(rj)
     assertAndNotify(rj["code"], 1, "test_accept", rj["msg"])
-    sleep(10)
+    sleep(3)
 
 
 def test_departure(driver_login_fix):
@@ -41,7 +41,7 @@ def test_departure(driver_login_fix):
     rj = res.json()
     print(rj)
     assertAndNotify(rj["code"], 1, "test_departure", rj["msg"])
-    sleep(10)
+    sleep(3)
 
 def test_arriveSite(doctor_login_fix):
 
@@ -55,7 +55,7 @@ def test_arriveSite(doctor_login_fix):
     rj = res.json()
     print(rj)
     assertAndNotify(rj["code"], 1, "test_arriveSite", rj["msg"])
-    sleep(10)
+    sleep(3)
 
 
 def test_returnHospital(driver_login_fix):
@@ -69,7 +69,7 @@ def test_returnHospital(driver_login_fix):
     rj = res.json()
     print(rj)
     assertAndNotify(rj["code"], 1, "test_returnHospital", rj["msg"])
-    sleep(10)
+    sleep(3)
 
 
 def test_arriveHospital(doctor_login_fix):
@@ -82,7 +82,7 @@ def test_arriveHospital(doctor_login_fix):
     rj = res.json()
     print(rj)
     assertAndNotify(rj["code"], 1, "test_arriveHospital", rj["msg"])
-    sleep(10)
+    sleep(3)
 
 
 def test_pending(driver_login_fix):
@@ -95,4 +95,4 @@ def test_pending(driver_login_fix):
     rj = res.json()
     print(rj)
     assertAndNotify(rj["code"], 1, "test_pending", rj["msg"])
-    sleep(10)
+    sleep(3)

@@ -6,7 +6,7 @@ __author__ = "YuKwengRu"
     1、创建求救任务
     2、指派出车
 '''
-from auto.rescources.ApiTest.conf import assign
+from auto.rescources.ApiTest.conf_api import assign
 
 from auto.rescources.ApiTest.conf_task_code import unit_dict
 
@@ -22,10 +22,7 @@ def test_assign(create_task_help_fix):
 
     hr, help_id, fist_dis_id = create_task_help_fix
     ambId = unit_dict["center"]["siteId"]["site1"]["ambId"][0]
-    # print(hr.headers)
     res = hr.request(assign["method"], assign["uri"], params = {"ambId":ambId, "dispatchId":fist_dis_id, "type": "first"})
     rj = res.json()
-    print("派车")
-    print(rj)
     assertAndNotify(rj["code"], 1, "test_assign", rj["msg"])
-    sleep(10)
+    sleep(3)
