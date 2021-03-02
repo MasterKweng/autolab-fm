@@ -7,7 +7,7 @@ node {
     // 初始化一些运行态需要的全局变量
     stage("Init"){
         echo "Init Run Env"
-        bat 'python3 --version'
+        bat 'python --version'
     }
 
     // 从git获取最新代码
