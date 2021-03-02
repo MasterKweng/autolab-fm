@@ -7,7 +7,7 @@ node {
     // 初始化一些运行态需要的全局变量
     stage("Init"){
         echo "Init Run Env"
-        bat 'python --version'
+        powershell 'python --version'
     }
 
     // 从git获取最新代码
@@ -18,13 +18,13 @@ node {
 
     // 启动测试
     stage("Test"){
-        bat "pytest --version"
+        powershell "pytest --version"
         dir("."){
-            bat "pwd"
-            bat "cd ./auto/plan/DatabaseTest/"
-            // bat "pytest ${testplan} --html=./logs/report.html --self-contained-html"
-            bat "pytest  --cache-clear --html=./logs/report.html --self-contained-html"
-            // bat "pytest"
+            powershell "pwd"
+            powershell "cd ./auto/plan/DatabaseTest/"
+            // powershell "pytest ${testplan} --html=./logs/report.html --self-contained-html"
+            powershell "pytest  --cache-clear --html=./logs/report.html --self-contained-html"
+            // powershell "pytest"
         }
     }
     
