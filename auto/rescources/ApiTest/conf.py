@@ -2,7 +2,7 @@
 
 __author__ = "YuKwengRu"
 
-from auto.rescources.ApiTest.conf_task_code import unit_dict
+# from auto.rescources.ApiTest.conf_task_code import unit_dict
 
 # hr, token = http_connector
 

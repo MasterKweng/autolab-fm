@@ -4,11 +4,11 @@ __author__ = "YuKwengRu"
 
 import pytest
 from conf.configGlobal import DINGTALK_URL, DBURL, HTTPURL, VALIDDBURL, WSURL
-from .rescources.DatabaseTest.conf_db import AUTOLAB, EV_CALL_01
+from .rescources.DatabaseTest.conf import FMERP
 from runner.DBRunner import DBRunner
 from runner.HttpRunner import HttpRunner
 from runner.WSRunner import WSRunner
-from auto.rescources.ApiTest.conf_api import admin_login, agent_login, doctor_login, driver_login, create_task_help, is_work
+# from auto.rescources.ApiTest.conf_api import admin_login, agent_login, doctor_login, driver_login, create_task_help, is_work
 from utils.assertAndNotify import assertAndNotify
 
 '''
@@ -17,7 +17,7 @@ from utils.assertAndNotify import assertAndNotify
 @pytest.fixture(scope="module")
 def database_connector():
 
-    return DBRunner(conn_str=DBURL)
+    return DBRunner(conn_str=FMERP["conn_str"])
     # return DBRunner(conn_str=AUTOLAB["conn_str"])
 
 @pytest.fixture(scope="module")

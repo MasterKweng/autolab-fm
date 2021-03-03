@@ -88,7 +88,7 @@ class DBRunner(Runner):
         res = {}
         for (k,v) in columns.items():
             # for (k,v) in col.items():
-            #     # v = col[k]
+                # v = col[k]
             res[k] = v == self.__find_column(table_name, k)["default"]
             # for k in col.keys():
             #     v = col[k]
