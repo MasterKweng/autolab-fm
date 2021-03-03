@@ -15,3 +15,4 @@ def test_FMERP_tables(database_connector):
         print("table %s in database!" % table)
 
         assert res[table]
+        
