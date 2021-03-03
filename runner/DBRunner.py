@@ -24,6 +24,7 @@ class DBRunner(Runner):
         # init inspector object
         self.insp = reflection.Inspector.from_engine(engine)
 
+    # 以list形式传入待测试的数据库表名
     def has_tables(self, tables_name=[]):
         res = {}
 
@@ -37,6 +38,7 @@ class DBRunner(Runner):
         
         return res
     
+    # 以str形式传入被测试表；以list形式传入被测试表的字段
     def has_columns(self, table_name, columns_name=[]):
         res = {}
         for col in columns_name:
@@ -44,6 +46,7 @@ class DBRunner(Runner):
         
         return res
     
+    # 以str形式传入被测试表；以list形式传入被测试表的字段
     def is_primary_key(self, table_name, columns_name=[]):
         res = {}
 
@@ -53,6 +56,7 @@ class DBRunner(Runner):
         
         return res
     
+    # 以str形式传入被测试表；以list形式传入被测试表的字段
     def is_unique(self, table_name, columns_name=[]):
         res = {}
         unique_columns = self.insp.get_unique_constraints(table_name)
@@ -64,6 +68,7 @@ class DBRunner(Runner):
                     break
         return res
     
+    # 以str形式传入被测试表；以list形式传入被测试表的字段
     def has_index(self, table_name, columns_name = []):
         res = {}
 
@@ -77,6 +82,7 @@ class DBRunner(Runner):
         
         return res
 
+    # 以str形式传入被测试表；以list形式传入被测试表的字段
     def is_nullable(self, table_name, columns_name=[]):
         res = {}
         for col in columns_name:
@@ -84,6 +90,7 @@ class DBRunner(Runner):
         
         return res
     
+    # 以str形式传入被测试表；以dict形式传入被测试表的字段及其默认值
     def is_default(self, table_name, columns={}):
         res = {}
         for (k,v) in columns.items():
@@ -96,6 +103,7 @@ class DBRunner(Runner):
         
         return res
     
+    # 内部调用函数
     def __find_column(self, table_name, column_name):
         columns = self.insp.get_columns(table_name)
 

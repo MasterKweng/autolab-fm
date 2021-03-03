@@ -12,8 +12,10 @@ from runner.WSRunner import WSRunner
 from utils.assertAndNotify import assertAndNotify
 
 '''
+    数据测试需要fixture
     dbtest fixture
 '''
+# 返回数据库连接
 @pytest.fixture(scope="module")
 def database_connector():
 
